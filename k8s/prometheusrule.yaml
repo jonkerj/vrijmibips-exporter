@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: vrijmibips
+spec:
+  groups:
+  - name: vrijmibips
+    rules:
+    - alert: StockIncreased
+      annotations:
+        message: VrijMiBips stock increaed
+        description: Order your package now
+      expr: increase(stock{namespace="vrijmibips"}[5m]) > 0
+      for: 1m
+      labels:
+        severity: warning
