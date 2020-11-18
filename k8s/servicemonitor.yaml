@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: stock-exporter
+  labels:
+    app: vrijmibips
+spec:
+  jobLabel: vrijmibips
+  endpoints:
+  - targetPort: metrics
+    path: /metrics
+    interval: 300s
+  selector:
+    matchLabels:
+      app: vrijmibips

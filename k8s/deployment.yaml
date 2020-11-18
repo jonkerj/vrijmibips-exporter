@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vrijmibips
+  labels:
+    app: vrijmibips
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vrijmibips
+  template:
+    metadata:
+      labels:
+        app: vrijmibips
+    spec:
+      containers:
+      - name: exporter
+        image: jonkerj/vrijmibips:v1
+        ports:
+        - containerPort: 8000
+          name: metrics
+        args:
+        - --url
+        - https://www.craftbeerstore.nl/product/vrijmibips-pakket-2/
