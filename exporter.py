@@ -12,7 +12,7 @@ def scrape_value(url, select, regex):
 	page = requests.get(url)
 	soup = BeautifulSoup(page.content, 'html.parser')
 	r = re.compile(regex)
-	value = 'NaN'
+	value = '0'
 	for element in soup.select(select):
 		m = r.match(element.text)
 		if m:

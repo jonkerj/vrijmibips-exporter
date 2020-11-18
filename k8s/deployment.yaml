@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: exporter
-        image: jonkerj/vrijmibips:v1
+        image: jonkerj/vrijmibips:v2
         ports:
         - containerPort: 8000
           name: metrics
